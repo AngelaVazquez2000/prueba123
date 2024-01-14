@@ -1,0 +1,521 @@
+*,
+*::before,
+
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* cabecera_____________________________________________________________________________________________________________________________________*/
+
+.linea_principal{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 300px;
+    background: rgb(157,36,73);
+    background: linear-gradient(90deg, rgba(157,36,73,1) 32%, rgba(0,126,103,1) 100%);
+    height: 1.5rem;
+}
+
+
+
+.redes_ico img,
+.tel img,
+.buzon img{
+    height: 1.2rem;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(103deg) brightness(120%) contrast(105%);
+    padding: 2px 10px 2px 2px;
+}
+
+
+.linea_principal a{
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+   
+}
+
+.linea_principal a:hover{
+    color: #b4cddf;
+}
+
+.linea_principal img:hover{
+    filter: invert(20%) sepia(87%) saturate(620%) hue-rotate(163deg) brightness(90%) contrast(104%);
+}
+
+@media screen and (max-width: 768px) {
+    .redes,
+    .tel, 
+    .buzon{
+      display: none;
+    }
+
+    .linea_principal{
+        height: 50px;
+    }
+
+    .linea_principal a {
+        display: none;
+      }
+} 
+
+
+
+/*Menuu_______________________________________________________________________________________________________________________________________*/
+
+.menu img {
+    height: 2.5rem;
+}
+
+#LCONA{
+    padding-left: 3rem;
+}
+#LGOMEX{
+    padding-right: 4rem;
+}
+
+.menu{
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    color: #ffffff;
+    height: 4rem;
+    width: 100%;
+    z-index: 4;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.menu a{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3f3f3f;
+    font-size: 12px;
+    
+}
+
+
+.menu a:hover{
+    color: rgb(8, 111, 68);
+    transition: all 0.5s;
+}
+
+.menu__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px;
+    height: 100%;
+    margin: 0px auto;
+}
+
+.menu__links{
+    height: 100%;
+    transition: transform .5s;
+    display: flex;
+}
+
+
+.menu__item{
+    list-style: none;
+    position: relative;
+    height: 100%;
+    --clip: polygon(0 0, 100% 0, 100% 0, 0 0);
+    --transform: rotate(0);
+    
+}
+
+
+.menu__item:hover{
+    --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    --transform: rotate(90deg);
+    
+}
+
+.menu__link{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 15px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+
+.menu__nesting--inside{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 30px;
+    height: 100%;
+    align-items: center;
+}
+
+.menu__container ul li ul li ul li{
+    display: none;
+    background-color: #ffffff;
+    list-style: none;
+    padding: 10px 30px;
+    height: 100%;
+   
+}
+
+.menu__container ul li ul li:hover> ul li{
+    display: block;
+    
+} 
+
+
+.menu__arrow{
+    max-height: 12px;
+    transform: var(--transform);
+    transition: transform .3s;
+    display: block;
+    margin-left: 3px;
+}
+
+.menu__nesting{
+    list-style: none;
+    transition:clip-path .3s;
+    clip-path: var(--clip);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: max-content;
+    transform: translateY(100%);
+    background-color: #ffffff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.menu__link--inside{
+    padding: 30px 100px 30px 20px;
+    --transform: rotate(0);
+}
+
+.menu__link--inside:hover{
+    background-color: #e7e6e6;
+    --transform: rotate(90deg);
+}
+
+.menu__hamburguer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    cursor: pointer;
+    display: none;
+    
+}
+
+.menu__img{
+    position: absolute;
+    left: 90%;
+    height: 50px;
+}
+
+
+@media (max-width:800px){
+    .menu{
+        width: 720px;
+    }
+    .menu__hamburguer{
+        display: flex;
+    }
+
+    .menu__item a{
+        color: #ffffff;
+    }
+
+    .menu__inside a{
+        color: #292929;
+    }
+
+    .menu__item{
+        --clip:0;
+        overflow:hidden ;
+    }
+
+    .menu__item--active{
+        --transform: rotate(0);
+        --background: #5e7094;
+    }
+
+    .menu__item--show{
+        background-color: var(--background);
+    }
+
+
+    .menu__links{
+        position: fixed;
+        max-width: 400px;
+        width: 100%;
+        top: 50px;
+        bottom: 0;
+        right: 0;
+        background: rgb(157,36,73);
+        background: linear-gradient(193deg, rgba(157,36,73,1) 4%, rgba(0,126,103,1) 100%);
+        overflow-y: auto;
+        display: grid;
+        grid-auto-rows: max-content;
+        transform: translateX(100%);
+    }
+
+    .menu__links--show{
+        transform: unset;
+        width: 100%;
+    }
+
+    .menu__link{
+        padding: 25px 0;
+        padding-left: 30px;
+        height: auto;
+    }
+
+    .menu__container ul li ul li ul li{
+        height: 30px;
+       
+    }
+
+    .menu__arrow{
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    .menu__nesting{
+        display: grid;
+        position: unset;
+        width: 100%;
+        transform: translateY(0);
+        height: 0;
+        transition: height .3s;
+    }
+
+    .menu__link--inside{
+        width: 90%;
+        margin-left: auto;
+        border-left: 1px solid #798499;
+    }
+}
+
+.menu_prin .active{ 
+    top: 0px;
+    background:#ffffff;
+    transition: .2s;
+}
+/*Body_____________________________________________________________________________________________*/
+
+
+h1{
+    display: flex;
+    position: relative;
+    margin-block-start: 1rem;
+    background: rgb(157,36,73);
+    background: linear-gradient(193deg, rgba(157,36,73,1) 4%, rgba(0,126,103,1) 100%);    text-align: center;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+    height: 80px;
+    color: #ffffff;
+    
+}
+.cont p{
+    display: block;
+    position: relative;
+    padding: 80px 200px 100px 200px;
+    font-size: 24px;
+    color: rgb(82, 82, 82);
+    text-align: justify;
+    
+}
+
+#p_mision::first-letter{
+    color: #60baa9;
+    font-size: 54px;
+    font-weight: bold;
+}
+
+.cont{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.cont img{
+    margin-top: -150px;
+    height: 40rem;
+}
+
+.Pie_pag{
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    width: auto;
+    height: 300px;
+    gap: 100px;
+    background-color: #100c30;
+}
+
+.Pie_pag h2{
+    display: flex;
+    justify-content: center;
+    margin:  0 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px;
+    letter-spacing: 1px;
+    color: #eff5f4;
+    
+    
+}
+.Pie_pag a{
+    font-size: 12px;
+    color: aliceblue;
+    font-size: 16px;
+
+}
+
+@media screen and (max-width:720px) {
+    .Pie_pag{ 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        
+    }
+
+    #maps{
+        width: 400px;
+        height: 400px;
+    }
+
+}
+
+.sigenos .cona_mexlogo {
+    padding: 10px 5px;
+}
+
+.redes_list{
+    display: flex;
+    flex-direction: row;
+}
+
+.redes_list img{
+    margin-right: 10px;
+    height: 2rem;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(103deg) brightness(120%) contrast(105%);
+    padding: 2px 10px 2px 2px;
+}
+
+/*______CONTACTANOs_______________________________________________________________________________________*/
+.contactanos{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 600px;
+
+}
+
+.contactanos p{
+    color: #ffffff;
+}
+.contactanos #avisop{
+    color: #007e67;
+    margin: 10px;
+}
+.contactanos #avisop:hover{
+    color: #c5f0e8
+}
+
+
+/*carrusel sitios____________________________________________________________________________________________________ */
+
+#sitios{
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    top: 30px;
+}
+
+.carrusel_2{
+    width: 300px;
+    height: 100%;
+    position: relative;
+    
+}
+
+.carrusel_img{
+    width: 100%;
+    padding-left: -100pc;
+}
+
+.flechas{
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#carrusel_img_1{
+    width: 100%;
+    height: 100%;
+}
+
+#carrusel_img_2{
+    width: 100%;
+    height: 100%;
+}
+
+#carrusel_img_3{
+    width: 100%;
+    height: 100%;
+}
+
+
+.flechas img{
+    height: 35px;
+    width: 25px;
+}
+
+
+
+
+
+/*derechos resarvados_________________________________________________________________________________________________*/
+
+.derec_reservados {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   background: #007e67;
+   width: auto;
+   height: 35px;
+   color: rgba(255,255,255,0.8);
+}
+
+.derec_reservados p {
+   font-size: 16px;
+   margin-top: 10px;
+}
